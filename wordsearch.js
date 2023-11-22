@@ -3,6 +3,24 @@ const wordSearch = (letters, word) => {
     for (l of horizontalJoin) {
         if (l.includes(word)) return true
     }
+    let rowStr = [];
+    for (let c =  0; c < letters[0].length; c++)
+    {
+        let vertWord = "";
+        for(let r = 0; r < letters.length; r++)
+        {
+            vertWord += letters[r][c];
+        }
+        rowStr.push(vertWord);
+    }
+    for(const value of rowStr)
+    {
+        if(value.includes(word))
+        {
+            return true;
+        }
+    }
+    return false;
 }
 
 module.exports = wordSearch
